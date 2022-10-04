@@ -1,0 +1,80 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+
+{% block nav%}    
+{% endblock %} 
+{% block header %}
+{% endblock %} 
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion de datos de biografia</title>
+</head>
+<body>      
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>     
+<div style="margin-top: 5%;" class="container">
+    <h1>Datos Actuales</h1>
+    <table style="margin-top: 5%;" class="table">
+        <thead>
+          <tr>
+            <th scope="col">titulo</th>
+            <th scope="col">desc_princ</th>
+            <th scope="col">integrante_uno</th> 
+            <th scope="col">integrante_dos</th>
+            <th scope="col">desc_prim</th>      
+            <th scope="col">desc_seg</th> 
+            <th scope="col">imagen_one</th>
+            <th scope="col">imagen_two</th>      
+            <th scope="col">imagen_three</th>      
+            <th scope="col">Editar</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}            
+        <tr>
+            <td>{{ object.titulo }}</td>
+            <td>{{ object.desc_princ }}</td>
+            <td>{{ object.integrante_uno }}</td>
+            <td>{{ object.integrante_dos }}</td>
+            <td>{{ object.desc_prim }}</td>
+            <td>{{ object.desc_seg }}</td>
+            <td><img style="width:200px; height:180px;" src="{{ object.imagen_one.url }}" alt="" border=3 height=100 width=100></img></th>            
+            <td><img style="width:200px; height:180px;" src="{{ object.imagen_two.url }}" alt="" border=3 height=100 width=100></img></th>            
+            <td><img style="width:200px; height:180px;" src="{{ object.imagen_three.url }}" alt="" border=3 height=100 width=100></img></th>                                
+            <td>
+                <button type="button" class="btn btn-secondary move"><a class=""
+                    href="{% url 'upd_bio' pk=object.id %}"><i class="far fa-edit" style="color: white;">Editar</i></button>
+              </td>
+
+        </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+</div>
+
+
+
+    
+</body>
+</html>
+
+{% endblock %} 
+
+
+
+
+
+

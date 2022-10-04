@@ -1,0 +1,79 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+
+{% block nav%}    
+{% endblock %} 
+{% block header %}
+{% endblock %} 
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion NavBar</title>
+</head>
+<body>      
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>     
+<div style="margin-top: 5%;" class="container">
+    <h1>Agregar Track</h1>
+    <table style="margin-top: 5%;" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Lanzamiento</th> 
+            <th scope="col">imagen</th>
+            <th scope="col">pista</th>         
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for object in object_list %}            
+        <tr>
+            <td>{{ object.nombre }}</td>
+            <td>{{ object.tipo }}</td>
+            <td>{{ object.lanzamiento }}</td>
+            <td><img style="width:200px; height:180px;" src="{{ object.imagen.url }}" alt="" border=3 height=100 width=300></img></th>
+            <td><audio controls><source src="{{object.pista.url}}" type="audio/mp3"></audio></td>
+            <td>
+                <button type="button" class="btn btn-secondary move"><a class=""
+                    href="{% url 'upd_track' pk=object.id %}"><i class="far fa-edit" style="color: white;">Editar</i></button>
+              </td>
+  
+              <td>
+                <button type="button" class="btn btn-danger move"><a class=""
+                    href="{% url 'borr_track' pk=object.id %}"><i class="far fa-edit" style="color: white;">Eliminar</i></button>
+              </td>
+        </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary"><a style="color: white;" href="{% url 'crea_track' %}">Agregar Track</a></button>
+
+
+</div>
+
+
+
+    
+</body>
+</html>
+
+{% endblock %} 
+
+
+
+
+
+

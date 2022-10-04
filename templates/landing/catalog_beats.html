@@ -1,0 +1,29 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+
+
+{% block header %}
+{% endblock %} 
+{% block body %}
+<section  style="margin-top: 5%;" id="service" class="section pt-0">
+    <div class="container">
+        <h6 class="section-title text-center">Producciones Musicales</h6>
+        <h6 class="section-subtitle text-center mb-5 pb-3">Disfruta de cada una nuestras producciones, no dudes en contactarnos si estas interesado en uno de nuestros instrumentales.</h6>
+        <div class="row">
+            {% for d_tr in list_tracks.all %}                                                       
+            <div class="contenedor col-md-4">
+                <div class="card">
+                    <img src="{{ d_tr.imagen.url }}">
+                    <h5>{{d_tr.nombre}}</h5>
+                    <p>{{d_tr.descripcion}}</p>
+                    <p><audio controls preload="none"><source src="{{d_tr.pista.url}}" type="audio/mp3"></audio></p>
+                    <h6>{{d_tr.lanzamiento}}</h6>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>  
+    </div>
+</section>
+{% endblock %} 

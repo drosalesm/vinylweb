@@ -1,0 +1,77 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block nav%}    
+{% endblock %} 
+{% block header %}
+{% endblock %} 
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion NavBar</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>    
+<div style="margin-top: 5%;" class="container">
+    {% if view_type == 'update' %}
+    <h2 style="margin-top: 3%;">Actualizar Opcion</h2>
+    {% else %}
+    <h2 style="margin-top: 3%;">Agregar Opcion</h2>
+    {% endif %}
+
+    <form method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-md-3">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField""><strong>Descripcion</strong></label>
+                    <div>{% render_field form.descripcion class="form-control" placeholder=form.descripcion.label%}</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField"><strong>Posicion</strong></label>
+                    <div>{% render_field form.posicion class="form-control" placeholder=form.posicion.label%}</div>
+                </div>
+            </div>    
+            <div class="col-md-3">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField""><strong>Link al contenido</strong></label>
+                    <div>{% render_field form.link_contenido class="form-control" placeholder=form.link_contenido.label%}</div>
+                </div>
+            </div>
+        </div> 
+
+</div>
+<div style="margin-top: 2%;" class="container">
+    {% if view_type == 'update' %}
+    <button class='btn btn-primary' type='submit'>Actualizar Opcion</button>
+    {% else %}
+    <button class='btn btn-primary' type='submit'>Ingresar Opcion </button>
+    {% endif %}
+</div>
+</form>
+
+
+</div>
+
+</body>
+</html>
+
+
+{% endblock %} 

@@ -1,0 +1,120 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block nav%}    
+{% endblock %} 
+{% block header %}
+{% endblock %} 
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion de Biografia</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>    
+<div style="margin-top: 5%;" class="container">
+    {% if view_type == 'update' %}
+    <h2 style="margin-top: 3%;">Actualizar Registro</h2>
+    {% else %}
+    <h2 style="margin-top: 3%;">Agregar Registro</h2>
+    {% endif %}
+
+    <form method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-md-3">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField""><strong>titulo</strong></label>
+                    <div>{% render_field form.titulo class="form-control" placeholder=form.titulo.label%}</div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField"><strong>Descripcion Principal</strong></label>
+                    <div>{% render_field form.desc_princ class="form-control" placeholder=form.desc_princ.label%}</div>
+                </div>
+            </div>    
+                                               
+        </div> 
+        
+<div class="row" style="margin-top: 5%;">
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Primer Integrante</strong></label>
+            <div>{% render_field form.integrante_uno class="form-control" placeholder=form.integrante_uno.label%}</div>
+        </div>
+    </div>                        
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Segundo Integrante</strong></label>
+            <div>{% render_field form.integrante_dos class="form-control" placeholder=form.integrante_dos.label%}</div>
+        </div>
+    </div> 
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Descripcion Primer</strong></label>
+            <div>{% render_field form.desc_prim class="form-control" placeholder=form.desc_prim.label%}</div>
+        </div>
+    </div>                        
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField"><strong>Descripcion Segundo</strong></label>
+            <div>{% render_field form.desc_seg class="form-control" placeholder=form.desc_seg.label%}</div>
+        </div>
+    </div>     
+</div>
+
+<div class="row" style="margin-top: 5%;">
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Imagen 1</strong></label>
+            <div>{% render_field form.imagen_one class="form-control" placeholder=form.imagen_one.label%}</div>
+        </div>
+    </div> 
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Imagen 2</strong></label>
+            <div>{% render_field form.imagen_two class="form-control" placeholder=form.imagen_two.label%}</div>
+        </div>
+    </div>                        
+    <div class="col-md-3">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>Imagen 3</strong></label>
+            <div>{% render_field form.imagen_three class="form-control" placeholder=form.imagen_three.label%}</div>
+        </div>
+    </div> 
+</div>
+
+</div>
+<div style="margin-top: 2%;" class="container">
+    {% if view_type == 'update' %}
+    <button class='btn btn-primary' type='submit'>Actualizar Registro</button>
+    {% else %}
+    <button class='btn btn-primary' type='submit'>Agregar Registro</button>
+    {% endif %}
+</div>
+</form>
+
+
+</div>
+
+</body>
+</html>
+
+
+{% endblock %} 

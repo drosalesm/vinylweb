@@ -1,0 +1,97 @@
+{%load static%}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Vinyl Producciones</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static '/assets/vendors/themify-icons/css/themify-icons.css'%}">
+    <!-- Bootstrap + LeadMark main styles -->
+	<link rel="stylesheet" href="{% static '/assets/css/leadmark.css'%}">
+    <link href="{% static '/assets/vendors/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">    
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    <!-- Service Section -->
+    <section style="margin-top: 5%;" id="service" class="section pt-0">
+
+        <div class="container">
+            <h6 class="section-title text-center">Configuraciones</h6>
+            <h6 class="section-subtitle text-center mb-5 pb-3">Realizar Configuraciones VINYL WEB</h6>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <h5 class="card-title mt-3"><a href="{% url 'list_nav' %}">Barra de navegacion</a><h5>
+                            <p class="mb-0">Configure las opciones de la barra de navegacion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <h5 class="card-title mt-3"><a href="{% url 'list_track' %}">Tracks</a><h5>
+                            <p class="mb-0">Ingrese, Actualice o borre los tracks de la seccion de produccion musical</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 mb-md-0">
+                        <div class="card-body">
+                            <h5 class="card-title mt-3"><a href="{% url 'list_vivo' %}">En vivo</a><h5>
+                            <p class="mb-0">Ingrese, Actualice o borre las sesiones en vivo</p>
+                        </div>
+                    </div>
+                </div>                            
+            </div>
+            <div class="row" style="margin-top: 5%;">
+
+            <div class="col-md-4">
+                <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <h5 class="card-title mt-3"><a href="{% url 'list_bio' %}">Biografia</a><h5>
+                        <p class="mb-0">Actualice la informacion de biografia de VINYL WEB</p>
+                    </div>
+                </div>
+            </div>              
+            <div class="col-md-4">
+                <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <h5 class="card-title mt-3"><a href="{% url 'list_contact' %}">Contacto</a><h5>
+                        <p class="mb-0">Actualice la informacion de contacto de VINYL WEB</p>
+                    </div>
+                </div>
+            </div>              
+        </div>
+    </section>
+    <!-- End OF Service Section -->
+	
+	<!-- core  -->
+    <script src="{% static '/assets/vendors/jquery/jquery-3.4.1.js'%}"></script>
+    <script src="{% static '/assets/vendors/bootstrap/bootstrap.bundle.js'%}"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="{% static '/assets/vendors/bootstrap/bootstrap.affix.js'%}"></script>
+
+    <!-- Isotope -->
+    <script src="{% static '/assets/vendors/isotope/isotope.pkgd.js'%}"></script>
+
+    <!-- LeadMark js -->
+    <script src="{% static '/assets/js/leadmark.js'%}"></script>
+
+</body>
+</html>

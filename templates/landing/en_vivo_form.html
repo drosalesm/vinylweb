@@ -1,0 +1,88 @@
+{% extends "landing/inicio.html" %}
+{%load static%}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block nav%}    
+{% endblock %} 
+{% block header %}
+{% endblock %} 
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracion de sesiones en vivo</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><i class="bi bi-house"></i> Inicio</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>    
+<div style="margin-top: 5%;" class="container">
+    {% if view_type == 'update' %}
+    <h2 style="margin-top: 3%;">Actualizar sesion</h2>
+    {% else %}
+    <h2 style="margin-top: 3%;">Agregar sesion</h2>
+    {% endif %}
+
+    <form method="POST" enctype='multipart/form-data'>
+        {% csrf_token %}
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-md-3">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField""><strong>Titulo</strong></label>
+                    <div>{% render_field form.titulo class="form-control" placeholder=form.titulo.label%}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="div_cod_ord" class="form-group">
+                    <label for="id_cod_ord" class="requiredField"><strong>Descripcion</strong></label>
+                    <div>{% render_field form.descripcion class="form-control" placeholder=form.descripcion.label%}</div>
+                </div>
+            </div>    
+            <div class="col-md-3">
+                <div style="margin-top: 1%;" id="div_nombre_sucursal" class="form-group"> 
+                    <label for="id_nombre_sucursal" class="requiredField"><strong>Fecha:</strong></label> 
+                    <input type="date" name="fecha_grabacion" maxlength="500" class="textinput textInput form-control" 
+                    required id="id_fecha_grabacion" value="{{form.fecha_grabacion.value | date:'c'}}">
+                </div>  
+            </div>
+
+        </div> 
+<div class="row">
+    <div class="col-md-6">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField"><strong>Url</strong></label>
+            <div>{% render_field form.url class="form-control" placeholder=form.url.label%}</div>
+        </div>
+    </div> 
+
+</div>
+
+</div>
+<div style="margin-top: 2%;" class="container">
+    {% if view_type == 'update' %}
+    <button class='btn btn-primary' type='submit'>Actualizar sesion</button>
+    {% else %}
+    <button class='btn btn-primary' type='submit'>Agregar sesion</button>
+    {% endif %}
+</div>
+</form>
+
+
+</div>
+
+</body>
+</html>
+
+
+{% endblock %} 

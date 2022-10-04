@@ -1,0 +1,211 @@
+{%load static%}
+{% load crispy_forms_tags %}
+{% load embed_video_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with LeadMark landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Vinyl Producciones</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static '/assets/vendors/themify-icons/css/themify-icons.css'%}">
+    <!-- Bootstrap + LeadMark main styles -->
+	<link rel="stylesheet" href="{% static '/assets/css/leadmark.css'%}">
+    <link href="{% static '/assets/vendors/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    {% block nav%}    
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">        
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><h4 class="efect"><i class="bi bi-house-fill"></i></h4></a>
+                    </li>
+                    {% for data in opc_nav.all %}                                         
+                    <li class="nav-item">
+                        <a class="titulo_nav nav-link" href="#{{data.link_contenido}}"><h4 class="efect">{{ data.descripcion}}</h4></a>
+                    </li>
+                    {% endfor %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}"><h4 class="efect"><i class="bi bi-people-fill"></i> Logout</h4></a>
+                    </li>   
+                    {% endif %}                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'configuraciones' %}"><h4 class="efect"><i class="bi bi-gear"></i></h4></a>
+                    </li>                    
+                    <li class="nav-item">
+                        {% for cont in contact.all %}                                                       
+                        <a href="{{cont.whatsapp}}" target="_blank"" class="ml-4 nav-link btn btn-primary btn-sm rounded"><i class="bi bi-cart-check"></i> Comprar beat</a>
+                        {% endfor %}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}    
+    <!-- End Of Second Navigation -->
+
+    <!-- Page Header -->
+    {% block header %}
+    <header class="header">
+        <div class="overlay">
+        </div>  
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
+            </svg>
+        </div>  
+        <div class="mouse-icon"><div class="wheel"></div></div>
+    </header>
+    {% endblock %}    
+    <!-- End Of Page Header -->
+
+    <!-- Service Section -->
+    {% block body %}    
+    <section  id="service" class="section pt-0">
+        <div class="container">
+            <h6 class="section-title text-center">Producciones Musicales <i class="bi bi-boombox"></i></h6>
+            <h6 class="section-subtitle text-center mb-5 pb-3">Disfruta de cada una nuestras producciones, no dudes en contactarnos si estas interesado en uno de nuestros instrumentales.</h6>
+            <div class="row">
+                {% for d_tr in list_tracks.all %}                                                       
+                <div class="contenedor col-md-4">
+                    <div class="card">
+                        <img src="{{ d_tr.imagen.url }}">
+                        <h5>{{d_tr.nombre}}</h5>
+                        <p>{{d_tr.descripcion}}</p>
+                        <p><audio controls preload="none"><source src="{{d_tr.pista.url}}" type="audio/mp3"></audio></p>
+                        <h6>{{d_tr.lanzamiento}}</h6>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>  
+            <div class="row n_page_t">               
+                    <a href="{% url 'catalogo' %}" class="ml-4 nav-link btn btn-primary btn-bg rounded"><i class="bi bi-music-note-list"></i> Catalogo de Beats...</a>
+            </div>            
+        </div>
+    </section>
+    <!-- End OF Service Section -->
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                {% for b in bio.all %}                                                       
+                <div class="col-md-6 pr-md-5 mb-4 mb-md-0">
+                    <h6 class="section-title mb-0">{{ b.titulo }} <i class="bi bi-disc"></i></h6>
+                    <p >{{ b.desc_princ }}</p>
+                    <img src="{{b.imagen_one.url}}" alt="" class="w-100 mt-3 shadow-sm img_bio">
+                </div>
+                <div class="col-md-6 pl-md-5">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{{b.imagen_two.url}}" alt="" class="w-100 shadow-sm img_bio">
+                        </div>
+                        <div class="col-6">
+                            <img src="{{b.imagen_three.url}}" alt="" class="w-100 shadow-sm img_bio">
+                        </div>
+                        <div class="contenedor col-12 mt-4">
+                            <h3>{{ b.integrante_uno }}</h3>
+                            <p>{{ b.desc_prim }}</p>
+                            <h3>{{ b.integrante_dos }}</h3>
+                            <p>{{ b.desc_seg }}<br>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}                
+            </div>              
+        </div>
+    </section>
+    <!-- End OF About Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio-section">
+        <div class="container">
+            <h6 class="section-title text-center">Musica en vivo <i class="bi bi-music-player"></i></h6>
+            <h6 class="section-subtitle mb-5 text-center">Realizamos eventos en vivo para animar tus fiestas</h6>
+            <div class="row">
+                {% for l_v in list_vivo.all %}                                                       
+                <div class="contenedor col-md-4">
+                <div class="card_video">                    
+                        <h5>{{l_v.titulo}}</h5>
+                        {% video l_v.url '400x400' %} 
+                        <p>{{l_v.descripcion}}</p>
+                        <h6>{{l_v.fecha_grabacion}}</h6>                  
+                    </div>                        
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row n_page_t">               
+                <a href="{% url 'catalogo' %}" class="ml-4 nav-link btn btn-primary btn-bg rounded"><i class="bi bi-music-note-list"></i> Ver sesiones en vivo...</a>
+        </div>               
+        </div>            
+    </section>
+    <!-- End of portfolio section -->
+
+    <section id="contact" class="section has-img-bg pb-0">
+        <div class="container">
+            {% for cont in contact.all %}                                                       
+            <div class="row align-items-center">
+                <div class="col-md-5 my-3">
+                    <h6 class="mb-0">Telefono</h6>
+                    <p class="mb-4">{{cont.telefono}}</p>
+
+                    <h6 class="mb-0">Direccion</h6>
+                    <p class="mb-4"> {{cont.Direccion}}</p>
+
+                    <h6 class="mb-0">Email</h6>
+                    <p class="mb-0"> {{cont.correo}}</p>
+                    <p></p>
+                </div>
+                <div class="col-md-5 my-3">
+                    <h6 class="mb-0"><a href="{{cont.facebook}}" target="_blank" ><i class="bi bi-facebook"></i></a></h6>
+                    <p class="mb-4"></p>
+                    <h6 class="mb-0"><a href="{{cont.youtube}}" target="_blank" ><i class="bi bi-youtube"></i></a></h6>
+                    <p class="mb-4"></p>
+                    <h6 class="mb-0"><a href="{{cont.instagram}}" target="_blank" ><i class="bi bi-instagram"></i></a></h6>
+                    <p class="mb-4"></p>
+                    <h6 class="mb-0"><a href="{{cont.whatsapp}}" target="_blank" ><i class="bi bi-whatsapp"></i></a></h6>
+                </div> 
+            </div>
+            
+            {% endfor %}                                                                   
+            <!-- Page Footer -->
+            <footer class="mt-5 py-4 border-top border-secondary">
+                <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, Vinyl Productions HN Created By <a href="https://www.facebook.com/david.rosalesmejia" target="_blank">dmejia.</a>  All rights reserved </p>     
+            </footer>
+            <!-- End of Page Footer -->  
+        </div>
+    </section>
+    {% endblock %}	
+	<!-- core  -->
+    <script src="{% static '/assets/vendors/jquery/jquery-3.4.1.js'%}"></script>
+    <script src="{% static '/assets/vendors/bootstrap/bootstrap.bundle.js'%}"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="{% static '/assets/vendors/bootstrap/bootstrap.affix.js'%}"></script>
+
+    <!-- Isotope -->
+    <script src="{% static '/assets/vendors/isotope/isotope.pkgd.js'%}"></script>
+
+    <!-- LeadMark js -->
+    <script src="{% static '/assets/js/leadmark.js'%}"></script>
+
+</body>
+</html>
