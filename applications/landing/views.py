@@ -24,6 +24,12 @@ def catalogo_beats(request):
     list_tracks = tracks.objects.order_by('lanzamiento').all()    
     return render(request,'landing/catalog_beats.html',{'opc_nav':opc_nav,'list_tracks':list_tracks})
 
+def catalogo_live(request):
+    opc_nav = nav_bar_opt.objects.order_by('posicion').all()
+    list_vivo = en_vivo.objects.order_by('-fecha_grabacion')
+    return render(request,'landing/catalog_live.html',{'opc_nav':opc_nav,'list_vivo':list_vivo})
+
+
 def logueo(request):
     return render(request, 'landing/login.html')
 

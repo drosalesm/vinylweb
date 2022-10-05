@@ -43,10 +43,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}"><h4 class="efect"><i class="bi bi-people-fill"></i> Logout</h4></a>
                     </li>   
-                    {% endif %}                    
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'configuraciones' %}"><h4 class="efect"><i class="bi bi-gear"></i></h4></a>
                     </li>                    
+                    {% endif %}                    
                     <li class="nav-item">
                         {% for cont in contact.all %}                                                       
                         <a href="{{cont.whatsapp}}" target="_blank"" class="ml-4 nav-link btn btn-primary btn-sm rounded"><i class="bi bi-cart-check"></i> Comprar beat</a>
@@ -139,11 +139,11 @@
     <section id="portfolio" class="section portfolio-section">
         <div class="container">
             <h6 class="section-title text-center">Musica en vivo <i class="bi bi-music-player"></i></h6>
-            <h6 class="section-subtitle mb-5 text-center">Realizamos eventos en vivo para animar tus fiestas</h6>
+            <h6 class="section-subtitle mb-5 text-center">Realizamos producciones para eventos y para artistas</h6>
             <div class="row">
                 {% for l_v in list_vivo.all %}                                                       
                 <div class="contenedor col-md-4">
-                <div class="card_video">                    
+                <div class="card_video img_bio">                    
                         <h5>{{l_v.titulo}}</h5>
                         {% video l_v.url '400x400' %} 
                         <p>{{l_v.descripcion}}</p>
@@ -153,7 +153,7 @@
                 {% endfor %}
             </div>
             <div class="row n_page_t">               
-                <a href="{% url 'catalogo' %}" class="ml-4 nav-link btn btn-primary btn-bg rounded"><i class="bi bi-music-note-list"></i> Ver sesiones en vivo...</a>
+                <a href="{% url 'catalogo_vivo' %}" class="ml-4 nav-link btn btn-primary btn-bg rounded"><i class="bi bi-music-note-list"></i> Ver sesiones en vivo...</a>
         </div>               
         </div>            
     </section>

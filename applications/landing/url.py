@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.indexPage,name='inicio'),
     path('configuraciones/', views.configuraciones,name='configuraciones'),
     path('catalogo/', views.catalogo_beats,name='catalogo'),
+    path('catalogo_vivo/', views.catalogo_live,name='catalogo_vivo'),
     path('ingreso_vinyl/', views.logueo,name='ingreso_vinyl'),
     #--------URLs de navegacion
     path('list_nav/',views.listNavBar.as_view(),name='list_nav'),

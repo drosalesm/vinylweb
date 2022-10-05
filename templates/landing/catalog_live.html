@@ -1,19 +1,19 @@
 {% extends "landing/inicio.html" %}
 {%load static%}
 {% load crispy_forms_tags %}
-
+{% load embed_video_tags %}
 
 {% block header %}
 {% endblock %} 
 {% block body %}
 <section  style="margin-top: 5%;" id="service" class="section pt-0">
     <div class="container">
-        <h6 class="section-title text-center">Producciones Musicales</h6>
-        <h6 class="section-subtitle text-center mb-5 pb-3">Disfruta de cada una nuestras producciones, no dudes en contactarnos si estas interesado en uno de nuestros instrumentales.</h6>
+        <h6 class="section-title text-center">Sesiones en vivo</h6>
+        <h6 class="section-subtitle text-center mb-5 pb-3">Realizamos producciones para eventos y para artistas.</h6>
         <div class="row">
             {% for l_v in list_vivo.all %}                                                       
             <div class="contenedor col-md-4">
-            <div class="card_video">                    
+            <div class="card_video img_bio">                    
                     <h5>{{l_v.titulo}}</h5>
                     {% video l_v.url '400x400' %} 
                     <p>{{l_v.descripcion}}</p>
@@ -21,7 +21,7 @@
                 </div>                        
             </div>
             {% endfor %}
-        </div> 
+        </div>  
     </div>
 </section>
 {% endblock %} 

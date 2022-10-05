@@ -19,7 +19,7 @@ SECRET_KEY = 'oq)#zxs4mc$$6ky455_k9&@0i9+q&@s5pn%8546e@q@n9=#__p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vinilwebhn.herokuapp.com']
+
 # Application definition
 
 INSTALLED_APPS = [
