@@ -1,14 +1,7 @@
 from .base import *
 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-ALLOWED_HOSTS = ['ddah.herokuapp.com']
-
 # Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 
 #DATABASES = {
 #    'default': {
@@ -33,6 +26,4 @@ DATABASES = {
 }
 
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR.child('static')]
+

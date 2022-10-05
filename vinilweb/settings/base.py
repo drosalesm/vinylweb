@@ -16,7 +16,10 @@ from django.urls import reverse_lazy
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'oq)#zxs4mc$$6ky455_k9&@0i9+q&@s5pn%8546e@q@n9=#__p'
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
 
+ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
@@ -112,14 +115,20 @@ LOGOUT_REDIRECT_URL='/'
 #Configurar la ruta static
 
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR.child('static')]
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')   #este es el original
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   #este es el nuevo
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 STATIC_TMP = os.path.join(BASE_DIR, 'static')
 
-django_heroku.settings(locals())
 
 #AUTH_USER_MODEL = 'usuarios_inova.User'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
