@@ -2,6 +2,7 @@
 from pathlib import Path
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from unipath import Path
@@ -116,6 +117,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')   #este es el original
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')   #este es el nuevo
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
 STATIC_TMP = os.path.join(BASE_DIR, 'static')
+
+django_heroku.settings(locals())
 
 #AUTH_USER_MODEL = 'usuarios_inova.User'
 
