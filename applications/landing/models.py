@@ -27,7 +27,6 @@ class tracks(models.Model):
     lanzamiento = models.DateField(null=True)
     imagen = models.ImageField(null=True,blank=True,verbose_name="Imagen")
     pista = models.FileField(null=True)
-
     def __str__(self):
         return self.nombre
 

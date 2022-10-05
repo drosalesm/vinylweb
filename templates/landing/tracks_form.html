@@ -54,7 +54,7 @@
                     <label for="id_cod_ord" class="requiredField""><strong>Tipo</strong></label>
                     <div>{% render_field form.tipo class="form-control" placeholder=form.tipo.label%}</div>
                 </div>
-            </div>                        
+            </div>                                        
             <div class="col-md-3">
                 <div style="margin-top: 1%;" id="div_nombre_sucursal" class="form-group"> 
                     <label for="id_nombre_sucursal" class="requiredField"><strong>Fecha Lanzamiento:</strong></label> 
@@ -78,7 +78,13 @@
             <div>{% render_field form.pista class="form-control" placeholder=form.pista.label%}</div>
         </div>
     </div>    
-    
+    <div class="col-md-2">
+        <div id="div_cod_ord" class="form-group">
+            <label for="id_cod_ord" class="requiredField""><strong>URL Imagen</strong></label>
+            <div>{% render_field form.url_img class="form-control" placeholder=form.url_img.label%}</div>
+        </div>
+    </div>        
+
 </div>
 
 
