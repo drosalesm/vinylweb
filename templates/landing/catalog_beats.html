@@ -11,17 +11,19 @@
         <h6 class="section-title text-center">Producciones Musicales</h6>
         <h6 class="section-subtitle text-center mb-5 pb-3">Disfruta de cada una nuestras producciones, no dudes en contactarnos si estas interesado en uno de nuestros instrumentales.</h6>
         <div class="row">
-            {% for l_v in list_vivo.all %}                                                       
+            {% for d_tr in list_tracks.all %}                                                       
             <div class="contenedor col-md-4">
-            <div class="card_video">                    
-                    <h5>{{l_v.titulo}}</h5>
-                    {% video l_v.url '400x400' %} 
-                    <p>{{l_v.descripcion}}</p>
-                    <h6>{{l_v.fecha_grabacion}}</h6>                  
-                </div>                        
+                <div class="card">
+                    <img src="{{ d_tr.imagen.url }}">
+                    <h5>{{d_tr.nombre}}</h5>
+                    <p>{{d_tr.descripcion}}</p>
+                    <p><audio controls preload="none"><source src="{{d_tr.pista.url}}" type="audio/mp3"></audio></p>
+                    <h6>{{d_tr.lanzamiento}}</h6>
+                </div>
+                
             </div>
             {% endfor %}
-        </div> 
+        </div>  
     </div>
 </section>
 {% endblock %} 
