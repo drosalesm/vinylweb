@@ -2,9 +2,9 @@ from .base import *
 
 
 # Database
-#ALLOWED_HOSTS = ['vinilwebhn.herokuapp.com']
+ALLOWED_HOSTS = ['vinilwebhn.herokuapp.com']
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -17,16 +17,16 @@ DATABASES = {
 }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'eLYD592WKJ6qozX1g1s3',
-        'HOST': 'containers-us-west-33.railway.app',
-        'PORT': '6677',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'railway',
+#        'USER': 'postgres',
+#        'PASSWORD': 'eLYD592WKJ6qozX1g1s3',
+#        'HOST': 'containers-us-west-33.railway.app',
+#        'PORT': '6677',
+#    }
+#}
 
 
 
