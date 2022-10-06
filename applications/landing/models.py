@@ -25,8 +25,9 @@ class tracks(models.Model):
     descripcion= models.CharField(max_length=500,verbose_name="Descripcion")
     tipo= models.CharField(max_length=500,verbose_name="Tipo",choices=TRACK_CHOICES)
     lanzamiento = models.DateField(null=True)
-    imagen = models.ImageField(null=True,blank=True,verbose_name="Imagen")
-    pista = models.FileField(null=True)
+    #imagen = models.ImageField(null=True,blank=True,verbose_name="Imagen")
+    #pista = models.FileField(null=True)
+    pista= EmbedVideoField(null=True,blank=True)
     def __str__(self):
         return self.nombre
 

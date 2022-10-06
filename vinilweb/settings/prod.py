@@ -19,12 +19,12 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'postgresql://${{ PGUSER }}:${{ PGPASSWORD }}@${{ PGHOST }}:${{ PGPORT }}/${{ PGDATABASE }}',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'eLYD592WKJ6qozX1g1s3',
-        'HOST': 'containers-us-west-33.railway.app',
-        'PORT': '6677',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vinylwebhndb',
+        'USER': 'jdmejia',
+        'PASSWORD': '123david',
+        'HOST': 'database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
