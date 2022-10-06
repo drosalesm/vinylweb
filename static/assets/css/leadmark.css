@@ -11423,6 +11423,9 @@ textarea.form-control {
   overflow: hidden;
 }
 
+
+
+
 .header .overlay {
   position: absolute;
   left: 0;
@@ -11878,3 +11881,6 @@ font-size: 30px;
 .efect:hover:before {
   width: 100%;
 }
+
+/*estilos para guardar las imagenes de la biografia */
+
