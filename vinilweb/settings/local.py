@@ -2,6 +2,8 @@ from .base import *
 # Database
 DEBUG = True
 ALLOWED_HOSTS = ['*']
+import dj_database_url
+
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -13,17 +15,22 @@ ALLOWED_HOSTS = ['*']
 #    }
 #}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vinylwebhndb',
-        'USER': 'jdmejia',
-        'PASSWORD': '123david',
-        'HOST': 'database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
-}
+#DATABASES = {
+  #  'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+ #       'NAME': 'vinylwebhndb',
+#        'USER': 'jdmejia',
+#        'PASSWORD': '123david',
+#        'HOST': 'database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com',
+#        'PORT': '5432',
+#    }
+#}
 
+DATABASES = {
+    "default": dj_database_url.config(
+        default="postgres://jdmejia:123david@database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com:5432/vinylwebhndb",
+    )
+}
 
 #DATABASES = {  
 #    'default': {  
