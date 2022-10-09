@@ -13,7 +13,7 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://david:ZDHyVTIfvwsbtPDQvf68569WNIHNClip@dpg-ccvra3da4994l0ckk77g-a/restdjangodb",                 
+        default="postgres://cshhdkvvrbtwjh:d61b4cd114ea3284ddc40f5cc6f765b57295ae4988a060a7083d58a94f9e0028@ec2-44-198-82-71.compute-1.amazonaws.com:5432/dcehk2opl42hop",
     )
 }
 
