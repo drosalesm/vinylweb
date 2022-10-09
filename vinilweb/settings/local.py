@@ -28,17 +28,14 @@ import dj_database_url
 
 DATABASES = {
     "default": dj_database_url.config(
-        default="postgres://jdmejia:123david@database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com:5432/vinylwebhndb",
+        default="postgres://david:ZDHyVTIfvwsbtPDQvf68569WNIHNClip@dpg-ccvra3da4994l0ckk77g-a/restdjangodb",                 
     )
 }
 
-#DATABASES = {  
-#    'default': {  
-#        'ENGINE': 'django.db.backends.mysql',  
-#        'NAME': 'vinyl_page',  
-#        'USER': 'root',  
-#        'PASSWORD': 'your_password',  
-#        'HOST': 'localhost',  
-#        'PORT': '5432',  
-#    }  
-#}  
+
+
+#DATABASES = {
+#    "default": dj_database_url.config(
+#        default="postgres://jdmejia:123david@database-1.cqxiuo4vikrc.us-east-1.rds.amazonaws.com:5432/vinylwebhndb",
+#    )
+#}
